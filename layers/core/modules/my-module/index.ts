@@ -41,7 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
     // Auto-register composables
     addImportsDir(resolve("runtime/composables"));
 
-    // Add alias for the permissions module
+    // Add alias for the module
     nuxt.options.alias["#my-module"] = resolve("runtime");
   },
 });
