@@ -4,6 +4,11 @@ import LayerComponentTwo from "@core/components/LayerComponentTwo.vue";
 
 // Composable from module in core layer (auto-imported) - detected by knip
 const { getName } = useModuleData();
+
+const { data: layerCountries } = await useLazyFetch(
+  "/api/countries-from-layer",
+);
+const { data: rootCountries } = await useLazyFetch("/api/countries-from-root");
 </script>
 
 <template>
@@ -24,6 +29,9 @@ const { getName } = useModuleData();
     <MyModuleComponent />
 
     <p>{{ getName() }}</p>
+
+    <pre>{{ layerCountries }}</pre>
+    <pre>{{ rootCountries }}</pre>
 
     <!-- Icon from @iconify-json/lucide - not detected by knip (probably tricky) -->
     <UIcon name="lucide:home" />
